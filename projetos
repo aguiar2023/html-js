@@ -1,0 +1,254 @@
+Validação de número de telefone
+
+// Classe Contato com nome e telefone
+class Contato {
+    constructor(nome, telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+
+    // Método para validar o telefone (padrão: (XX) XXXXX-XXXX)
+    validarTelefone() {
+        const telefoneRegex = ..........................; // Regex que valida formato de telefone
+        return ..........................; // Verifica se o telefone corresponde ao regex
+    }
+}
+
+// Exemplo de uso da classe Contato
+const contato = new Contato("João", "(11) 98765-4321");
+
+if (!contato.validarTelefone()) {
+    console.log("Número de telefone inválido!");
+} else {
+    console.log("Número de telefone válido.");
+}
+*
+// Classe Contato com nome e telefone
+class Contato {
+    constructor(nome, telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+
+    // Método para validar o telefone (padrão: (XX) XXXXX-XXXX)
+    validarTelefone() {
+        const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/; // Regex que valida formato de telefone
+        return telefoneRegex.test(this.telefone); // Verifica se o telefone corresponde ao regex
+    }
+}
+
+// Exemplo de uso da classe Contato
+const contato = new Contato("João", "(11) 98765-4321");
+
+if (!contato.validarTelefone()) {
+    console.log("Número de telefone inválido!");
+} else {
+    console.log("Número de telefone válido.");
+}
+
+Verificação de CEP
+
+// Classe Endereco com rua, cidade e CEP
+class Endereco {
+    constructor(rua, cidade, cep) {
+        this.rua = rua;
+        this.cidade = cidade;
+        this.cep = cep;
+    }
+
+    // Método para validar o CEP (padrão: XXXXX-XXX)
+    validarCEP() {
+        const cepRegex = .............................; // Regex para validar CEP
+        return ..........................; // Retorna se o CEP corresponde ao regex
+    }
+}
+
+// Exemplo de uso da classe Endereco
+const endereco = new Endereco("Rua A", "São Paulo", "12345-678");
+
+if (!endereco.validarCEP()) {
+    console.log("CEP inválido!");
+} else {
+    console.log("CEP válido.");
+}
+*
+// Classe Endereco com rua, cidade e CEP
+class Endereco {
+    constructor(rua, cidade, cep) {
+        this.rua = rua;
+        this.cidade = cidade;
+        this.cep = cep;
+    }
+
+    // Método para validar o CEP (padrão: XXXXX-XXX)
+    validarCEP() {
+        const cepRegex = /^\d{5}-\d{3}$/; // Regex para validar CEP
+        return cepRegex.test(this.cep); // Retorna se o CEP corresponde ao regex
+    }
+}
+
+// Exemplo de uso da classe Endereco
+const endereco = new Endereco("Rua A", "São Paulo", "12345-678");
+
+if (!endereco.validarCEP()) {
+    console.log("CEP inválido!");
+} else {
+    console.log("CEP válido.");
+}
+
+Verificação de e-mail:
+
+// Classe Usuario com nome e email
+class Usuario {
+    constructor(nome, email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
+    // Método para validar o e-mail
+    validarEmail() {
+        const emailRegex = ....................; // Regex que valida e-mail
+        return ....................; // Retorna se o e-mail é válido
+    }
+}
+
+// Exemplo de uso da classe Usuario
+const usuario = new Usuario("Maria", "maria@email.com");
+
+if (!usuario.validarEmail()) {
+    console.log("E-mail inválido!");
+} else {
+    console.log("E-mail válido.");
+}
+*
+// Classe Usuario com nome e email
+class Usuario {
+    constructor(nome, email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
+    // Método para validar o e-mail
+    validarEmail() {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Regex que valida e-mail
+        return emailRegex.test(this.email); // Retorna se o e-mail é válido
+    }
+}
+
+// Exemplo de uso da classe Usuario
+const usuario = new Usuario("Maria", "maria@email.com");
+
+if (!usuario.validarEmail()) {
+    console.log("E-mail inválido!");
+} else {
+    console.log("E-mail válido.");
+}
+
+Async com API simulada:
+
+// Classe Produto com nome e preço
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // Método assíncrono para simular uma consulta ao preço atualizado de um produto
+    async consultarPrecoAtualizado() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                if (this.nome === "Notebook") {
+                    resolve(..........................); // Retorna o preço atualizado
+                } else {
+                    resolve(..........................); // Retorna o preço atual
+                }
+            }, 1500); // Simula tempo de resposta de 1,5 segundo
+        });
+    }
+}
+
+// Exemplo de uso da classe Produto
+async function exemploProduto() {
+    const produto = new Produto("Notebook", 2500);
+    const precoAtualizado = await produto.consultarPrecoAtualizado();
+    console.log(`Preço atualizado: ${precoAtualizado}`);
+}
+
+exemploProduto();
+*
+// Classe Produto com nome e preço
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // Método assíncrono para simular uma consulta ao preço atualizado de um produto
+    async consultarPrecoAtualizado() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                if (this.nome === "Notebook") {
+                    resolve(2700); // Retorna o preço atualizado para Notebook
+                } else {
+                    resolve(this.preco); // Retorna o preço atual para outros produtos
+                }
+            }, 1500); // Simula tempo de resposta de 1,5 segundo
+        });
+    }
+}
+
+// Exemplo de uso da classe Produto
+async function exemploProduto() {
+    const produto = new Produto("Notebook", 2500);
+    const precoAtualizado = await produto.consultarPrecoAtualizado();
+    console.log(`Preço atualizado: ${precoAtualizado}`);
+}
+
+exemploProduto();
+
+Aplicação de desconto:
+
+// Classe Item com nome, preço e desconto
+class Item {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // Método para aplicar um desconto ao preço
+    aplicarDesconto(descontoPercentual) {
+        if (descontoPercentual > 0 && descontoPercentual <= 100) {
+            this.preco = .........................; // Calcula o preço com desconto
+        } else {
+            console.log("Desconto inválido!");
+        }
+    }
+}
+
+// Exemplo de uso da classe Item
+const item = new Item("Teclado", 100);
+item.aplicarDesconto(10); // Aplica 10% de desconto
+console.log(`Preço com desconto: ${item.preco}`);
+*
+// Classe Item com nome, preço e desconto
+class Item {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    // Método para aplicar um desconto ao preço
+    aplicarDesconto(descontoPercentual) {
+        if (descontoPercentual > 0 && descontoPercentual <= 100) {
+            this.preco = this.preco * (1 - descontoPercentual / 100); // Calcula o preço com desconto
+        } else {
+            console.log("Desconto inválido!");
+        }
+    }
+}
+
+// Exemplo de uso da classe Item
+const item = new Item("Teclado", 100);
+item.aplicarDesconto(10); // Aplica 10% de desconto
+console.log(`Preço com desconto: ${item.preco}`);
+
